@@ -1,0 +1,44 @@
+import console
+
+def get_menu_choice():
+    console.writeline("Select an option:")
+    console.writeline("1. Get user input")
+    console.writeline("2. Perform a calculation")
+    console.writeline("3. Log a message")
+    console.writeline("4. Log an error")
+    console.writeline("5. Try to print a logged message with print")
+    console.writeline("6. Exit")
+    choice = console.readline()
+    return choice
+
+def main():
+    console.writeline("Welcome to the Simple Console App!")
+
+    while True:
+        choice = get_menu_choice()
+
+        if choice == "1":
+            user_input = console.readline("Please enter something: ")
+            console.writeline("You entered:", user_input)
+        elif choice == "2":
+            num1 = 10
+            num2 = 5
+            result = num1 + num2
+            console.writeline("The sum of", num1, "and", num2, "is", result)
+        elif choice == "3":
+            log_message = console.readline("Enter a log message: ")
+            console.log(log_message)
+        elif choice == "4":
+            error_message = console.readline("Enter an error message: ")
+            console.logerror(error_message)
+        elif choice == "5":
+            log_message = console.LoggedInput("This is a logged message.")
+            print(log_message)  # This should demonstrate that you can't print a logged message
+        elif choice == "6":
+            console.writeline("Goodbye!")
+            break
+        else:
+            console.writeline("Invalid choice. Please select a valid option.")
+
+if __name__ == "__main__":
+    main()
