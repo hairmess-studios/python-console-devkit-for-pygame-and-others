@@ -1,0 +1,38 @@
+import time
+import random
+
+class LoggedInput:
+    def __init__(self, text):
+        self.text = text
+    
+    def __str__(self):
+        return "\033[3;34m" + "This is a dev logged input: " + "\033[0m" + "\033[3;93m'" + self.text + "'\033[0m"
+
+def log(text):
+    print("\033[90m" + text + "\033[0m")
+
+def logerror(text):
+    print("\033[31m" + text + "\033[0m")
+
+def wait(x):
+    time.sleep(x)
+
+def waitrdm(x, y):
+    time.sleep(random.randint(x, y))
+
+def readline(prompt=""):
+    return input(prompt)
+
+def loginput(prompt=""):
+    user_input = readline(prompt)
+    return LoggedInput(user_input)
+
+def writeline(*args, **kwargs):
+    print(*args, **kwargs)
+
+def printlogged(logged_input):
+    if isinstance(logged_input, LoggedInput):
+        print(logged_input)
+    else:
+        logerror("Error: Only printlogged function can display logged input.")
+
